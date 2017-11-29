@@ -1,0 +1,25 @@
+/*! =========================================================
+ *
+ *  sass mixin
+ *
+ * =========================================================*/
+
+ /** CSS Grid Layoutを定義するmixin */
+ @mixin grid-layout {
+    display: -ms-grid;
+    display: grid;
+ }
+
+/** CSS Grid Layoutで複数の行を指定するmixin */
+@mixin create-grid-column-span($start, $end) {
+  grid-column-start: $start;
+  grid-column-end: $end;
+  -ms-grid-column-span: $end - $start;
+}
+
+/** CSS Grid Layoutで複数の列を指定するmixin */
+@mixin create-grid-row-span($start, $end) {
+  grid-row-start: $start;
+  grid-row-end: $end;
+  -ms-grid-row-span: $end - $start;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- IE8+に対して「IE=edge」と指定することで、利用できる最も互換性の高い最新のエンジンを使用するよう指示できます
+     参考: https://www.modern.ie/en-us/performance/how-to-use-x-ua-compatible -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- ページのタイトルを記述 -->
+<title></title>
+
+<!-- パフォーマンスのために使用する文字のエンコーディングを記述
+     参考: https://developers.google.com/speed/docs/best-practices/rendering#SpecifyCharsetEarly -->
+<meta charset="utf-8">
+
+<!-- content属性にページの紹介文を記述 -->
+<meta name="description" content="">
+
+<!-- content属性にページの著者情報を記述 -->
+<meta name="author" content="">
+
+<!-- モバイル端末への対応、ページをビューポートの幅に合わせてレンダリング（Android, iOS6以降）
+     ズームを許可しない設定「user-scalable=no」は加えない -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- スタイルシートはできるだけ早くレンダリングされるため、HTMLドキュメントの上の方に記述
+     href属性にスタイルシートファイルのURIを記述 -->
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- IE8以下用に2つのスクリプトを記述
+     html5shiv.js: IE8以下にHTML5の要素を認識するようにさせる
+     respond.js: IE8以下にMedia Queriesの代替え機能を提供 -->
+<!--[if lt IE 9]>
+<script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- href属性にファビコンファイルのURIを記述 -->
+<link rel="shortcut icon" href="">
+
+<!-- コメントアウトしてあるコードは、iOS/Android用のアイコン指定 -->
+<!--
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="196x196" href="">
+<link rel="apple-touch-icon" sizes="152x152" href="">
+-->
+
+<!-- スクリプトでブロッキングを起こさないものはここに記述
+     可能であれば「async（文書の読み込みが完了した時点でスクリプトを実行）」を使用
+     Example: <script src="" async></script> -->
+     <style>
+         .gNav{
+             display:-ms-flexbox;
+             display: -webkit-flex;
+             display: flex;
+             padding: 10px 0;
+             background-color: gold;
+             height: 150px;
+             -webkit-align-items: center; /* Safari */
+             align-items:         center;
+             padding: 5px;
+         }
+         /*
+         .gNav >.gNav-navi{
+             display:-ms-flexbox;
+             display: -webkit-flex;
+             display: flex;
+            align-items: center;
+         }
+         */
+         .gNav-navi{
+             width: 100%;
+             display:-ms-flexbox;
+             display: -webkit-flex;
+             display: flex;
+             -webkit-justify-content: flex-end; /* Safari */
+             justify-content:         flex-end;
+         }
+         .nav-header,
+         .nav-footer{
+             display: none;
+         }
+         .nav-header{
+             text-align: right;
+         }
+         .nav-header-menu{
+             display: block;
+         }
+         .nav-header-menu > li{
+             list-style: none;
+             display: inline;
+             padding-left: 10px;
+         }
+         .navBtn{
+             padding: 10px;
+             background-color: orange;
+             border: 1px solid blue;
+
+            text-align: center;
+         }
+         @media (min-width: 768px){
+
+             .logo{
+
+             }
+             .gNav-navi{
+                 display: block;
+
+             }
+             .nav-header{
+                 display: block;
+             }
+             .nav-footer{
+                 display: block;
+                 margin-top: 10px;
+             }
+             .nav-footer >nav{
+                 display:-ms-flexbox;
+                 display: -webkit-flex;
+                 display: flex;
+                 -webkit-justify-content: flex-end; /* Safari */
+                 justify-content:         flex-end;
+                 margin-right: -10px;
+                 height: 60px;
+             }
+
+             .navLink{
+                 height: 100%;
+                 padding: 10px;
+                 margin-right: 10px;
+                 background-color: pink;
+                 border: 1px solid blue;
+                 display: flex;
+                align-items: center;
+                max-width: 100px;
+                text-align: center;
+             }
+             .navBtn{
+                 display: none;
+             }
+         }
+
+     </style>
+</head>
+<body>
+
+<!-- コンテンツを記述 -->
+<h1>グローバルナビ　上下２段（flexbox）</h1>
+<div class="gNav">
+    <img src="https://placehold.jp/130x60.png" class="logo">
+    <div class="gNav-navi">
+        <div class="nav-header">
+            <ul class="nav-header-menu">
+                <li><a href="#">お問い合わせ</a></li>
+                <li><a href="#">プライバシーポリシー</a></li>
+                <li><a href="#">サイトマップ</a></li>
+            </ul>
+        </div>
+        <div class="nav-footer">
+            <nav>
+                <a href="#" class="navLink">HOME</a>
+                <a href="#" class="navLink">会社概要</a>
+                <a href="#" class="navLink">サービスについて</a>
+                <a href="#" class="navLink">採用案内</a>
+                <a href="#" class="navLink">お問い合わせ</a>
+            </nav>
+        </div>
+        <a class="navBtn">btn<br>メニュー</a>
+    </div>
+
+</div>
+<!-- スクリプトでブロッキングを起こすものはここに記述
+ブロッキングを起こす原因としては、CSSのセレクタ操作（IE）、負荷の高いDOM操作、多数のスクリプトなど -->
+<!-- SCRIPTS -->
+<!-- 例: <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+</body>
+</html>
